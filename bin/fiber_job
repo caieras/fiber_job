@@ -1,0 +1,32 @@
+#!/usr/bin/env ruby
+# frozen_string_literal: true
+
+require_relative '../lib/fiber_job'
+
+# Simple CLI for FiberJob
+command = ARGV[0]
+
+case command
+when 'worker'
+  puts "Starting FiberJob worker..."
+  FiberJob::ProcessManager.start_worker
+when 'version'
+  puts "FiberJob version #{FiberJob::VERSION}"
+when nil, 'help'
+  puts <<~HELP
+    FiberJob - High-performance fiber-based job processing
+
+    Usage:
+      fiber_job worker                Start a worker process
+      fiber_job version               Show version
+      fiber_job help                  Show this help
+
+    Examples:
+      fiber_job worker                # Start worker with default configuration
+      REDIS_URL=redis://localhost:6379/1 fiber_job worker  # Custom Redis URL
+  HELP
+else
+  puts "Unknown command: #{command}"
+  puts "Run 'fiber_job help' for usage information"
+  exit 1
+end
