@@ -5,7 +5,7 @@ require_relative "lib/fiber_job/version"
 Gem::Specification.new do |spec|
   spec.name = "fiber_job"
   spec.version = FiberJob::VERSION
-
+	spec.authors = ["Caio Mendonca"]
   spec.summary = "Experimental High-performance, Redis-based background job processing library for Ruby built on fiber-based concurrency"
   spec.homepage = "https://github.com/caieras/fiber_job"
   spec.license = "MIT"

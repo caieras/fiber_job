@@ -11,7 +11,7 @@ module FiberJob
       @semaphore = Async::Semaphore.new(max_concurrency)
     end
 
-    def execute(&)
+    def execute(&block)
       @semaphore.async(&block)
     end
   end

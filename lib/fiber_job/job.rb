@@ -97,6 +97,14 @@ module FiberJob
       true
     end
 
+    # Returns the queue name for this job class.
+    # Creates a temporary instance to get the configured queue name.
+    #
+    # @return [Symbol] The queue name where jobs of this class will be processed
+    def self.queue
+      new.queue
+    end
+
     # Enqueues the job for immediate asynchronous execution.
     #
     # @param args [Array] Arguments to pass to the job's perform method
