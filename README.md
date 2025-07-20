@@ -2,24 +2,10 @@
 
 A high-performance, Redis-based background job processing library for Ruby built on modern fiber-based concurrency. FiberJob combines the persistence of Redis with the speed of async fibers to deliver exceptional performance and reliability.
 
-## Architecture Highlights
+## Requirements
 
-FiberJob is a experimental gem that uses a architecture that sets it apart from traditional job queues:
-
-### **Hybrid Redis + Async::Queue Design**
-- **Redis for persistence**: Durable job storage with atomic operations and scheduling
-- **Async::Queue for speed**: Lightning-fast in-memory job processing with fiber-based concurrency
-- **Best of both worlds**: Reliability of Redis + performance of in-memory queues
-
-### **Advanced Fiber Management**
-- **Separation of concerns**: Independent polling fibers fetch from Redis while processing fibers execute jobs
-- **Per-queue fiber pools**: Isolated concurrency control with `Async::Semaphore` for optimal resource utilization
-- **Non-blocking operations**: All I/O operations use async/await patterns for maximum throughput
-
-### **Production-Optimized Performance**
-- **Minimal Redis contention**: Single polling fiber per queue reduces Redis load
-- **Fast job execution**: Jobs flow through in-memory `Async::Queue` for sub-millisecond processing
-- **Scalable concurrency**: Configurable fiber pools scale efficiently without thread overhead
+- Ruby 3.1+
+- Redis 5.0+
 
 ## Features
 
@@ -265,11 +251,6 @@ end
 
 - `REDIS_URL`: Redis connection URL
 - `FIBER_JOB_LOG_LEVEL`: Logging level
-
-## Requirements
-
-- Ruby 3.1+
-- Redis 5.0+
 
 ## License
 
