@@ -15,7 +15,9 @@ Gem::Specification.new do |spec|
   spec.metadata["source_code_uri"] = "https://github.com/caieras/fiber_job"
   spec.metadata["changelog_uri"] = "https://github.com/caieras/fiber_job/blob/main/CHANGELOG.md"
 
-  spec.files = Dir["{lib}/**/*", "*.md", base: __dir__]
+  spec.files = Dir["{lib,bin}/**/*", "*.md", base: __dir__]
+  spec.bindir = "bin"
+  spec.executables = ["fiber_job"]
 
   # Dependencies
   spec.add_dependency "async", "~> 2.26.0"
